@@ -1,1 +1,92 @@
-111
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>光棍节</title>
+	<script src="js/flexible.js"></script>
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/velocity.min.js"></script>
+	<script src="js/velocity.ui.min.js"></script>
+	<script src="js/shake.js" type="text/javascript"></script>
+	<link rel="stylesheet/less" type="text/css" href="css/style.less">
+	<script src="js/less.min.js" type="text/javascript"></script>
+</head>
+<body>
+	<div class="loading">
+		<canvas class="circle" id="canvas"></canvas>
+		<div class="loading-bg"></div>
+		<div class="text"></div>
+	</div>
+	<div class="home">
+		<div class="title"></div>
+		<div class="subtitle"></div>
+		<div class="entitle"></div>
+		<div class="shake-wrap">
+			<div class="finger"></div>
+			<div class="screen"></div>
+		</div>
+	</div>
+<div class="result">
+	<div class="title"></div>
+	<div class="answer"></div>
+	<div class="avatar"></div>
+	<div class="btns"></div>
+</div>
+<script type="text/javascript">
+	// $(function(){
+		var canvas = document.getElementById('canvas');
+		var ctx = canvas.getContext('2d')
+		function drawCircle(){
+			ctx.beginPath();
+			ctx.moveTo(0,0);
+			ctx.arc(73,73,73,0,2*Math.PI,false);
+			ctx.closePath();
+			ctx.fillStyle='#FE0308';
+			ctx.fill();
+		}
+
+		function drawPan(percent){
+			ctx.beginPath();
+			ctx.moveTo(73,73);
+			ctx.arc(73,73,73,0+1.5*Math.PI,1.5*Math.PI+(2*Math.PI)*percent/100,false);
+			ctx.closePath();
+			ctx.fillStyle='#000001';
+			ctx.fill();
+		}
+
+		drawCircle();
+		// drawPan(25);
+
+
+      var pics = ["css/entitle.png","css/hand.png","css/hand_finger.png","css/home_avatar0.png","css/home_avatar1.png","css/home_avatar2.png","css/home_avatar3.png","css/home_avatar4.png","css/home_avatar5.png","css/home_avatar6.png","css/home_shake_text.png","css/loading.png","css/result_answer.png","css/result_answer0.png","css/result_answer1.png","css/result_answer2.png","css/result_answer3.png","css/result_answer4.png","css/result_answer6.png","css/result_avatar.png","css/result_avatar_bg.png","css/result_avatar_bg_1.png","css/result_avatar_bg_2.png","css/result_avatar0.png","css/result_avatar1.png","css/result_avatar2.png","css/result_avatar3.png","css/result_avatar4.png","css/result_avatar6.png","css/result_btn.png","css/result_text.png","css/result_text0.png","css/result_text1.png","css/result_text2.png","css/result_text3.png","css/result_text4.png","css/result_text6.png","css/result_title.png","css/shake_tips.png","css/share.jpg","css/share.png","css/share0.jpg","css/share1.jpg","css/share2.jpg","css/share3.jpg","css/share4.jpg","css/share5.jpg","css/share6.jpg","css/subtitle.png","css/title.png","css/yue.png"];		
+var count = 0;
+for(var i = 0; i<pics.length; i++){
+
+	var img = new Image();
+	img.src = pics[i];
+	img.onload = function(){
+	// console.log('加载了一张图')	
+	count++; 
+	var percent = Math.floor(count/pics.length*100);
+	console.log(percent);
+	drawPan(percent);	
+	$('.text').html(percent+'%');
+	if(count == i){
+		console.log('加载执行完毕')	
+		}
+
+	}
+	console.log('循环执行完毕')	
+	$('.loading').hide();
+	$('.home').show(function(){
+		$('.title').velocity('callout.bounce',{complete:function(){
+			$('.subtitle').velocity('callout.flash',{complete:function(){
+				$('.entitle').velocity('transition.perspectiveDownIn');
+			}});
+		}});
+	});
+	}
+// });
+</script>
+</body>
+</html>

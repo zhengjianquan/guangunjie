@@ -1,0 +1,76 @@
+html,body,div,span,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,a,address,em,img,ol,ul,li,fieldset,form,label,legend,table,tbody,tfoot,thead,tr,th,td,i,b,s{margin:0;padding:0;border:0;font-weight:inherit;font-style:inherit;font-size:100%;font-family:Helvetica,Arial}
+ul,ol{list-style:none}
+a img{border:none;vertical-align:top}
+a{text-decoration:none}
+button{overflow:visible;padding:0;margin:0;border:0 none;background-color:transparent}
+button::-moz-focus-inner{padding:0}
+input[type=password]{-webkit-text-security:disc}
+textarea:focus,input:focus,button:focus{outline:none}
+body{word-wrap:break-word}
+*{-webkit-tap-highlight-color:rgba(0,0,0,0)}
+body,html{background-color: #fdeb01;overflow: hidden;width: 100%;height: 100%;}
+.hide{opacity: 0}
+.position_abs{position: absolute;}
+.loading{
+    position: relative;
+    left: 3.828125rem;
+    top: 4.453125rem;
+    .loading-bg{width:116px;height: 116px;background: url(../css/loading.png) no-repeat 0 0;position: absolute;left: 16px;top: 16px;background-size: cover;}
+    .text{text-align: center;width: 146px;}
+}
+.home{ position: relative; 
+	   display: none;
+	.title{width: 8.109375rem; height: 1.203125rem; background: url(../css/title.png) no-repeat;position: absolute; left: 1.3rem;top: 0.7rem;}
+	.subtitle{
+		.hide;
+		width: 8.1875rem; height: 1.625rem; background: url(../css/subtitle.png) no-repeat;position: absolute; left: 1.2rem;top: 2.2rem;}
+	.entitle{
+		.hide;
+		width: 8.296875rem; height: 0.703125rem; background: url(../css/entitle.png) no-repeat;position: absolute; left: 1.2rem;top: 4rem;}
+
+	.shake-wrap{
+		 width: 9.546875rem; 
+		 height: 11.703125rem; 
+		 background: url(../css/hand.png) no-repeat; 
+		 position: absolute; 
+		 left: -0.15625rem; 
+		 top: 7.9rem;
+		 animation: shark 2s linear infinite;
+		 transform-origin:30% 100%;
+	}
+
+	.finger{
+		.position_abs;
+		background:url(../css/hand_finger.png) no-repeat;
+		width: 4.28125rem; 
+		height: 3.4375rem;
+		left: 2.346875rem;
+		top:1.275rem;
+		}
+
+	@keyframes shark{
+		0%{transform:rotate(0deg)};
+		20%{transform:rotate(5deg)};
+		40%{transform:rotate(-5deg)};
+		60%{transform:rotate(5deg)};
+		80%{transform:rotate(-5deg)};
+		100%{transform:rotate(0deg)};
+	}
+	.screen1{
+	animation: screen 2s linear infinite;
+	}
+	.screen2{
+	animation: screen 2s 100ms linear infinite;
+	}
+	.screen2{
+	animation: screen 2s 300ms linear infinite;
+	}
+	@keyframes screen{
+		0%{opacity: 0}
+		20%{opacity: 1}
+		40%{opacity: 1}
+		60%{opacity: 0}
+		80%{opacity: 0}
+		100%{opacity: 0}
+	}
+}
